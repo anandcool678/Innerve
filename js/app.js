@@ -1,3 +1,13 @@
+const images = document.querySelectorAll("img");
+images.forEach(noDrag)
+
+function noDrag(item, index, arr){
+  arr[index].setAttribute("draggable", false);
+  console.log("here");
+}
+
+
+
 let nav = document.querySelector('.neww');
 let hidden = document.querySelector('.hidden_nav');
 let close = document.querySelector('.remove');
@@ -89,7 +99,7 @@ let xTime = x.getHours();
 
 if(((xDate >= 20 && xDate <=31) && xMonth === 0) 
     ||
-    ((xDate >= 1 && xDate <=20) && xMonth === 1)
+    ((xDate >= 1 && xDate <=26) && xMonth === 1)
   ){
   tCards[0].setAttribute("class", "timeline_card timeline_active")
   tCards[1].setAttribute("class", "timeline_card")
@@ -101,7 +111,9 @@ if(((xDate >= 20 && xDate <=31) && xMonth === 0)
   tCards[7].setAttribute("class", "timeline_card")
   }
 
-else if((xDate >= 21 && xDate <=28) && xMonth === 1){
+else if((xDate >= 26 && xDate <=28) && xMonth === 1
+        || 
+        (xDate < 10 && xMonth === 2)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card timeline_active")
   tCards[2].setAttribute("class", "timeline_card")
@@ -112,9 +124,8 @@ else if((xDate >= 21 && xDate <=28) && xMonth === 1){
   tCards[7].setAttribute("class", "timeline_card")
   }
 
-else if(((xDate >= 1 && xDate <11) && xMonth === 2)
-        || 
-        (xDate === 11 && xMonth === 2 && xTime < 14)
+else if(
+        (xDate === 10 && xMonth === 2 && xTime < 14)
   ){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card")
@@ -126,7 +137,7 @@ else if(((xDate >= 1 && xDate <11) && xMonth === 2)
   tCards[7].setAttribute("class", "timeline_card")
   }
 
-else if((xDate === 11 && xMonth === 2 && xTime >= 14 && xTime <= 15)){
+else if((xDate === 10 && xMonth === 2 && xTime >= 14 && xTime <= 15)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card")
   tCards[2].setAttribute("class", "timeline_card")
@@ -136,7 +147,7 @@ else if((xDate === 11 && xMonth === 2 && xTime >= 14 && xTime <= 15)){
   tCards[6].setAttribute("class", "timeline_card")
   tCards[7].setAttribute("class", "timeline_card")
   }
-else if((xDate === 11 && xMonth === 2 && xTime >= 15 && xTime <= 20)){
+else if((xDate === 10 && xMonth === 2 && xTime >= 15 && xTime <= 20)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card")
   tCards[2].setAttribute("class", "timeline_card")
@@ -146,7 +157,7 @@ else if((xDate === 11 && xMonth === 2 && xTime >= 15 && xTime <= 20)){
   tCards[6].setAttribute("class", "timeline_card")
   tCards[7].setAttribute("class", "timeline_card")
   }
-else if((xDate === 12 && xMonth === 2 && xTime <= 09)){
+else if((xDate === 11 && xMonth === 2 && xTime <= 09)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card")
   tCards[2].setAttribute("class", "timeline_card")
@@ -156,7 +167,7 @@ else if((xDate === 12 && xMonth === 2 && xTime <= 09)){
   tCards[6].setAttribute("class", "timeline_card")
   tCards[7].setAttribute("class", "timeline_card")
   }
-else if((xDate === 12 && xMonth === 2 && xTime >09 && xTime <= 13)){
+else if((xDate === 11 && xMonth === 2 && xTime >09 && xTime <= 13)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card")
   tCards[2].setAttribute("class", "timeline_card")
@@ -166,7 +177,7 @@ else if((xDate === 12 && xMonth === 2 && xTime >09 && xTime <= 13)){
   tCards[6].setAttribute("class", "timeline_card timeline_active")
   tCards[7].setAttribute("class", "timeline_card")
   }
-else if((xDate === 12 && xMonth === 2 && xTime >13 && xTime <= 17)){
+else if((xDate === 11 && xMonth === 2 && xTime >13 && xTime <= 17)){
   tCards[0].setAttribute("class", "timeline_card")
   tCards[1].setAttribute("class", "timeline_card timeline_active")
   tCards[2].setAttribute("class", "timeline_card")
@@ -193,7 +204,7 @@ else if((xDate === 12 && xMonth === 2 && xTime >13 && xTime <= 17)){
       mm = String(today.getMonth() + 1).padStart(2, "0"),
       yyyy = today.getFullYear(),
       nextYear = yyyy,
-      dayMonth = "3/11/",
+      dayMonth = "3/10/",
       birthday = dayMonth + yyyy;
   
     today = mm + "/" + dd + "/" + yyyy;
@@ -235,30 +246,30 @@ const $$ = str => document.querySelectorAll(str);
 
 
 
-jQuery(document).ready(function($) {
-    //  TESTIMONIALS CAROUSEL HOOK
-    $('#customers-testimonials').owlCarousel({
-        loop: true,
-        center: true,
-        items: 3,
-        margin: 0,
-        autoplay: true,
-        dots:true,
-        autoplayTimeout: 8500,
-        smartSpeed: 450,
-        responsive: {
-          0: {
-            items: 1
-          },
-          768: {
-            items: 2
-          },
-          1170: {
-            items: 3
-          }
-        }
-    });
-});
+// jQuery(document).ready(function($) {
+//     //  TESTIMONIALS CAROUSEL HOOK
+//     $('#customers-testimonials').owlCarousel({
+//         loop: true,
+//         center: true,
+//         items: 3,
+//         margin: 0,
+//         autoplay: true,
+//         dots:true,
+//         autoplayTimeout: 8500,
+//         smartSpeed: 450,
+//         responsive: {
+//           0: {
+//             items: 1
+//           },
+//           768: {
+//             items: 2
+//           },
+//           1170: {
+//             items: 3
+//           }
+//         }
+//     });
+// });
      
 // --------------------------------------------------------------------------------------------------------------
 
